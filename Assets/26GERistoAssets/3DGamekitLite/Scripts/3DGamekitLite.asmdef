@@ -1,0 +1,20 @@
+{
+    "name": "3DGamekitLite",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4307f53044263cf4b835bd812fc161a4",
+        "GUID:27b7e9efd224f064990a97ed99e4456f",
+        "GUID:9c5543eabb73a6249ac07b2c065ee8b4",
+        "GUID:62a5d40c21816bc4cad781a7a7f63db3",
+        "GUID:a35efad8797223d499f8c68b1f545dbc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

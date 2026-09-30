@@ -1,0 +1,24 @@
+Input Manager:
+- Presets will add the following:
+	- CameraY, sensitivity 0,5 (Mouse Y duplicate)
+	- CameraX, sensitivity 2 (Mouse X duplicate)
+	- Pause (Pause Menu duplicate)
+	- Fire1 (Fire duplicate)
+
+Ellen and Staff:
+- Ellen needs to be in Player layer (staff maybe in Default, but Player works too)
+- Staff: Target Layers -> Needed layers (enemies)
+
+Chomper:
+- Chomper needs to be in Enemies layer
+- Nav Mesh Agent -> Humanoid (or create chomper)
+- NavMesh Surface to Ground -> Bake for each agent type
+
+Script problems:
+- Handle Assembly Definition problems: Move scripts into same folder structure OR connect Assembly Definition References to the 3DGamekitLite Assembly Definition Asset
+- Does require (probably) some scripts from the DestructibleBox asset package
+
+------------------------
+
+DestructableBox:
+- Damageable3D now works with Ellen, disable it and the collider to get it working with the FPS Microgame CC

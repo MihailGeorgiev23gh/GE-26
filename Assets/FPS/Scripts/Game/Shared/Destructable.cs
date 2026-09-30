@@ -1,30 +1,38 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Unity.FPS.Game
 {
-    public class Destructable : MonoBehaviour
-    {
-        Health m_Health;
+	public class Destructable : MonoBehaviour
+	{
+		Health m_Health;
 
-        void Start()
-        {
-            m_Health = GetComponent<Health>();
-            DebugUtility.HandleErrorIfNullGetComponent<Health, Destructable>(m_Health, this, gameObject);
+		public UnityEvent OnDeath, OnReceiveDamage;
 
-            // Subscribe to damage & death actions
-            m_Health.OnDie += OnDie;
-            m_Health.OnDamaged += OnDamaged;
-        }
+		void Start()
+		{
+			m_Health = GetComponent<Health>();
+			DebugUtility.HandleErrorIfNullGetComponent<Health, Destructable>(m_Health, this, gameObject);
 
-        void OnDamaged(float damage, GameObject damageSource)
-        {
-            // TODO: damage reaction
-        }
+			// Subscribe to damage & death actions
+			m_Health.OnDie += OnDie;
+			m_Health.OnDamaged += OnDamaged;
+		}
 
-        void OnDie()
-        {
-            // this will call the OnDestroy function
-            Destroy(gameObject);
-        }
-    }
+		void OnDamaged(float damage, GameObject damageSource)
+		{
+			// TODO: damage reaction
+			if (OnReceiveDamage != null)
+				OnReceiveDamage.Invoke();
+		}
+
+		void OnDie()
+		{
+			// this will call the OnDestroy function
+			// if (OnDeath != null)
+			OnDeath.Invoke();
+			//else
+			//  Destroy(gameObject);
+		}
+	}
 }
